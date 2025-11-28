@@ -1,0 +1,128 @@
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  background:#ff9e9e;
+  position: relative;
+  overflow: hidden; 
+  margin: 0;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  color: #111;
+}
+
+.chat-wrapper {
+  width: min(720px, calc(100% - 48px));
+  max-width: 720px;
+  height: min(80vh, 900px);
+  background: #FFD3D5;
+  opacity: 0.85;
+  border-radius: 12px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+  display: grid;
+  grid-template-rows: auto 1fr auto; 
+  overflow: hidden;
+  z-index: 1; 
+}
+
+.decor-cats {
+  position: absolute;
+  inset: 0; 
+  pointer-events: none;
+  z-index: 0; 
+}
+.decor-cats .cat {
+  position: absolute;
+  will-change: transform, opacity;
+  opacity: 0.85;
+  filter: drop-shadow(0 6px 12px rgba(0,0,0,0.12));
+  transform-origin: center;
+  user-select: none;
+  font-size: 96px; 
+  transition: transform 0.6s cubic-bezier(.2,.9,.2,1), opacity 0.35s;
+  mix-blend-mode: multiply;
+}
+.decor-cats .cat1 { left: 6%; top: 18%; font-size: 88px; transform: rotate(-12deg); }
+.decor-cats .cat2 { right: 8%; top: 6%; font-size: 64px; transform: rotate(8deg) scaleX(-1); opacity: 0.9; }
+.decor-cats .cat3 { left: 50%; top: 2%; font-size: 120px; transform: translateX(-20%) rotate(6deg); opacity: 0.95; }
+.decor-cats .cat4 { right: 26%; bottom: 8%; font-size: 140px; transform: rotate(-8deg); opacity: 0.75; }
+.decor-cats .cat5 { left: 30%; bottom: 16%; font-size: 64px; opacity: 0.7; }
+.decor-cats .cat6 { right: 4%; top: 40%; font-size: 72px; transform: rotate(20deg); opacity: 0.8; }
+
+@media (max-width: 520px) {
+  .decor-cats .cat { font-size: 48px; opacity: 0.85; }
+  .decor-cats .cat3 { font-size: 68px; top: 4%; transform: translateX(-40%) rotate(6deg); }
+  .decor-cats .cat4 { display: none; }
+}
+
+header { padding: 16px; border-bottom: 1px solid #E06B80; }
+header h1 { margin: 0; font-size: 18px; }
+
+.chat {
+  padding: 18px 16px; 
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+  padding-bottom: 26px;
+}
+
+.message {
+  max-width: 75%;
+  padding: 12px 14px;
+  border-radius: 12px;
+  line-height: 1.4;
+  word-wrap: break-word;
+  word-break: break-word; 
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04); 
+}
+
+.user { align-self: flex-end; background: #ffffff; }
+.bot  { align-self: flex-start; background: #ffffff; }
+
+@media (max-width: 520px) {
+  .message { max-width: 92%; padding: 10px 12px; }
+}
+
+.composer {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid #E06B80;
+  position: sticky;
+  bottom: 0;
+  background: linear-gradient(180deg, rgba(255,211,213,0.95), rgba(255,211,213,0.95));
+  backdrop-filter: blur(4px); 
+}
+.composer input {
+  flex: 1;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  min-width: 0; 
+  font-size: 15px;
+}
+.composer button {
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: none;
+  background: #6b46c1;
+  opacity: 1;
+  color: white;
+  cursor: pointer;
+  min-width: 72px;
+}
+
+@media (max-width: 640px) {
+  body { height: auto; padding: 18px 0; }
+  .chat-wrapper { width: calc(100% - 28px); height: calc(100vh - 36px); border-radius: 10px; }
+  header { padding: 12px; }
+  .chat { padding: 12px; gap: 10px; }
+  .composer { padding: 10px; gap: 6px; }
+  .composer button { padding: 10px 12px; min-width: 60px; }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .chat::-webkit-scrollbar { width: 10px; height: 10px; }
+  .chat::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.08); border-radius: 6px; }
+}
