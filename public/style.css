@@ -1,13 +1,14 @@
 body {
   font-family: Elephant;
-  background:#ff9e9e;
+  background: linear-gradient(rgba(197, 122, 122, 0.35), rgba(192, 118, 118, 0.35)),
+              url('images/image2.jpg') center/cover no-repeat fixed;
   position: relative;
   overflow: hidden; 
   margin: 0;
   display: grid;
   place-items: center;
   height: 100vh;
-  color: #e06b80;
+  color: #a44d5d;
 }
 
 .chat-wrapper {
@@ -54,7 +55,7 @@ body {
   .decor-cats .cat4 { display: none; }
 }
 
-header { padding: 16px; border-bottom: 1px solid #E06B80; }
+header { padding: 16px; border-bottom: 1px solid #a44e5e; }
 header h1 { margin: 0; font-size: 18px; }
 
 .catbot-desc {
@@ -65,7 +66,7 @@ header h1 { margin: 0; font-size: 18px; }
   padding: 16px 22px;
   max-width: 420px;
   background: #fff8fa;
-  color: #e06b80;
+  color: #aa5061;
   border-radius: 18px;
   box-shadow: 0 2px 12px rgba(224,107,128,0.08);
   font-size: 1.08rem;
